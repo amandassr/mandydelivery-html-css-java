@@ -8,6 +8,26 @@
 
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
 
 .background{
     background-image: url(file:///C:/Users/aluno/Downloads/AMANDA%20S/Mandy%20Delivery/img/img.principal.jpg);
@@ -130,8 +150,8 @@ section h1{
 
 .cta{
     height: 60vh;
-    width: 100%;
-    background: url(file:///C:/Users/aluno/Downloads/AMANDA%20S/Mandy%20Delivery/img/ofertas.jpg);
+    width: 95%;
+    background: url(file:///C:/Users/aluno/Downloads/AMANDA%20S/Mandy%20Delivery/img/novo.avif);
     background-size:cover;
     background-position: center;
     display: flex;
@@ -213,7 +233,7 @@ section h1{
 .Marcas img{
     width: 180px;
     height: auto;
-    background-color: aliceblue;
+    background-color: white;
 }
 
 #Contato{
