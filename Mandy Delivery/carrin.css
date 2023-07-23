@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&family=Rock+Salt&display=swap');
+
+.background{
+  background-image: url(#);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  position: fixed;
+  background: transparent;
+  transition: all .35s ease;
+  background-color: #FF3060;
+  padding: 14px 14%;
+}
+
+
+.logo{
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.cabeçalho-link{
+  display: flex;
+  gap: 3rem;
+}
+
+.cabeçalho-link a{
+  color: #111;
+  font-weight: 700;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.cabeçalho-link a:hover{
+  color: #FF3060;
+}
+
+.box-busca{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #FF3060;
+}
+.search-box-input::placeholder {
+  
+  color:#ffffff;
+  opacity: 0.6;
+}
+/* Chrome, Opera ySafari */
+.search-box-input::-webkit-input-placeholder { color: #FF3060; }
+/* Firefox 19+ */
+.search-box-input::-moz-placeholder { color: #FF3060; }
+/* IE 10+ y Edge */
+.search-box-input:-ms-input-placeholder { color: #FF3060; }
+.search-box form {
+  
+  display: flex;
+  border-radius: 50px;
+  background-color: #fff56d;
+  height: 45px;
+}
+.search-box:hover .search-box-input {
+  
+  padding-left: 2em;
+  padding-right: 1em;
+  width: 250px;
+}
+.search-box-input {
+  outline: 0;
+  font-size: 1.2em;
+  color: #fff;
+  width: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  transition: .45s;
+}
+.search-box-button {
+ display: flex;
+ border-radius: 50%;
+ width: 45px;
+ height: 45px;
+ background-color: #fff56d;
+ border: none;
+ cursor: pointer;
+ transition: .3s;
+}
+.search-box-button:active  {
+  transform: scale(.85);
+}
+.bx-search-alt {
+  margin: auto;
+  color: #FF3060;
+}
+@media screen and (min-width: 400px){
+  
+  .search-box:hover .search-box-input {
+      width: 360px;
+  }
+}
+
+.bx-cart-alt {
+  color: #FF3060;
+  margin: auto;
+
+}
+
+.icon span{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.icon span:hover{
+  color: #FFff;
+}
+
+:root {
+  --white: #fff;
+  --red: #FF3060;
+  --gray: #959595;
+  --blue: #FF3060;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, button, input, textarea {
+  font: 400 16px "Roboto", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main-nav {
+  width: 100%;
+}
+
+.header-list-container {
+  padding: 16px 0;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  color: var(--white);
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+hr {
+  width: 100%;
+}
+
+.movie-title-large {
+  /* text-align: center; */
+  font-size: 54px;
+}
+
+
+/* Main */
+.main-section {
+  padding: 40px 0 64px;
+  margin-top: 3px;
+}
+
+.container {
+  margin-top: 100px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px
+  
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  margin-top: 100px;
+}
+
+.section-description {
+  color: #777;
+  margin-top: 100px;
+}
+
+.section-description + .section-description {
+  margin-top: 100px;
+}
+
+/* Main */
+.normal-section + .normal-section {
+  margin-top: 100px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 100px;
+}
+
+.bebida-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.product-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.product-image {
+  width: 240px; /* Flex wrap coloca 2 posters por linha, pq a seção tem 600px */
+  height: 144px;
+}
+
+.product-price-container {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.product-price {
+  margin-right: 12px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+.button-hover-background {
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 2px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.button-hover-background:hover {
+  background: transparent;
+  color: var(--red);
+}
+
+/* tabela carrinho de compras */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-head-item {
+  text-align: start;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.second-col,
+.third-col {
+  width: 26%;
+}
+
+.cart-product td {
+  padding: 8px 0;
+}
+
+.product-identification {
+  display: flex;
+  align-items: center;
+}
+
+.cart-product-image {
+  width: 120px;
+  height: 70px;
+}
+
+.cart-product-title {
+  margin-left: 16px;
+  font-size: 18px;
+}
+
+.cart-product-price {
+  font-family: "Raleway", sans-serif;
+}
+
+.product-qtd-input {
+  width: 48px;
+  height: 34px;
+  border-radius: 6px;
+  border: 2px solid var(--blue);
+  text-align: center;
+  background: #eee;
+}
+
+.remove-product-button {
+  margin-left: 12px;
+  background: #ff0000;
+  color: var(--white);
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 6px;
+
+  transition: filter 0.2s;
+}
+
+.remove-product-button:hover {
+  filter: brightness(0.8);
+}
+
+.cart-total-container {
+  border-top: 1px solid var(--gray);
+  text-align: end;
+  padding: 6px 16px 0 0;
+  font-size: 18px;
+}
+
+.cart-total-container strong {
+  margin-right: 12px;
+}
+
+.purchase-button {
+  display: flex;
+  margin: 24px auto 0;
+  background: var(--blue);
+  color: var(--white);
+  border: 0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+
+  transition: filter 0.2s;
+}
+
+.purchase-button:hover {
+  filter: brightness(0.8);
+}
+
+
+
+/* Responsividade */
+@media (max-width: 584px) {
+  .movie-title-large {
+    font-size: 36px;
+  }
+
+  .schedule-item {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .schedule-item + .schedule-item {
+    margin-top: 12px;
+  }
+
+  .show-date,
+  .show-place {
+    width: 32%;
+    padding: 4px;
+  }
+
+  .show-city {
+    width: 33%;
+    padding: 4px;
+  }
+
+  .buy-ticket-button {
+    width: 60%;
+    margin-top: 12px;
+    padding: 12px 2px;
+  }
+
+
+  .products-container {
+    justify-content: center;
+  }
+
+  .product-identification {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-product-title {
+    margin-top: 6px;
+  }
+
+  .product-qtd-input {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .remove-product-button {
+    display: block;
+    margin: 8px auto 0;
+  }
+}
+
+@media (max-width: 470px) {
+  .about-movie-image {
+    width: 160px;
+  }
+
+  .main-footer-container {
+    flex-direction: column;
+  }
+
+  .movie-title-medium {
+    margin-bottom: 16px;
+  }
+}
+
+#Contato{
+  display: flex;
+  gap: 5rem;
+  justify-content: space-around;
+  background-color: #111;
+  padding: 8rem;
+  margin-top: 5rem;
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+}
+
+.meio-contato h3{
+  color: #fff;
+  font-size: 23px;
+  margin-bottom: 1.6rem;
+}
+
+.meio-contato h5{
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.meio-contato li{
+  margin-bottom: 15px;
+}
+
+.meio-contato li a{
+  display: block;
+  color: #555;
+  font-weight: 600;
+  transition: all .35s ease;
+}
+
+.last-text{
+  text-align: center;
+  background-color: #555;
+  color: #fff;
+}
+

@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:200" rel="stylesheet">
+        <script src="java-carrin.js" async></script>
+        <link rel="stylesheet" href="contatoss.css">
+        <link rel="stylesheet" href="style-mandy.css">
+        <style>
+
+#Contato{
+    display: flex;
+    gap: 5rem;
+    justify-content: space-around;
+    background-color: #111;
+    padding: 8rem;
+    margin-top: 5rem;
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+}
+
+.meio-contato h3{
+    color: #fff;
+    font-size: 23px;
+    margin-bottom: 1.6rem;
+}
+
+.meio-contato h5{
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+}
+
+.meio-contato li{
+    margin-bottom: 15px;
+}
+
+.meio-contato li a{
+    display: block;
+    color: #555;
+    font-weight: 600;
+    transition: all .35s ease;
+} 
+
+#back-to-top {
+    position:static;
+    bottom: 50px;
+    background-color: #FF3060;
+  }
+
+.last-text{
+    text-align: center;
+    background-color: #555;
+    color: #fff;
+}
+        </style>
+          <title>Contato</title>
+    </head>
+    <header>
+        <div class="logo">
+            <img width="300" height="80" src="img\mandy delivery.png" alt="logo">
+        </div><!--logo-->
+
+        <div class="cabeçalho-link">
+            <li>
+                <a href="Mandy Delivery.html">Inicio</a>
+            </li>
+            <li>
+                <a href="Dicas.html">Destaques</a>
+            </li>
+            <li>
+                <a href="Catalogo.html">Catálogo</a>
+            </li>
+            <li>
+                <a href="Contato.html">Contato</a>
+            </li>
+        </div><!--cabeçalho-link-->
+        
+        <div class="icon"><span><ion-icon name="bag-outline"></ion-icon></span>
+            <div class="box-busca">
+                <div class="search-box">
+                    
+                    <form method="post" action="#">
+                        <input type="text" class="search-box-input" name="busca" placeholder="Faça sua Pesquisa">
+                        <button class="search-box-button"><i class='bx bx-search-alt bx-rotate-90' ></i></button>
+                        &#32;
+                        <a href="Carrin.html" button class="search-box-button"><i class='bx bx-cart-alt bx-tada bx-rotate-90' ></i></button></a> 
+                    </form>
+
+                </div><!-- Search -->
+            
+            </div><!--Box Busca-->
+        </div><!--icon-->
+    </header>
+
+    <body>
+        <section>
+        <div class="container">
+          <div class="header">
+            <h2>Entre em contato</h2>
+          </div>
+    
+          <form id="form" class="form">
+            <div class="form-control">
+              <label for="username">Nome</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Digite seu nome..."
+              />
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+            </div>
+    
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Digite seu email.." />
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+            </div>
+    
+            <div class="form-control">
+              <label for="password">Telefone</label>
+              <input
+                type="text"
+                id="text"
+                placeholder="Digite seu telefone..."
+              />
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+            </div>
+    
+            <div class="form-control">
+              <label for="password-confirmation">Conta pra nós</label>
+              <input
+                type="text"
+                id="text"
+                placeholder="Digite sua mensagem..."
+              />
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+            </div>
+    
+            <button type="submit">Enviar</button>
+            <center><img width="150" height="150" src="img\qr-code.png"></center>
+          </form>
+        </div>
+    
+        <script
+          src="https://kit.fontawesome.com/f9e19193d6.js"
+          crossorigin="anonymous"
+        ></script>
+    
+        <script
+        const form = document.getElementById("form");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("text");
+const passwordConfirmation = document.getElementById("text");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  checkInputs();
+});
+
+function checkInputs() {
+  const usernameValue = username.value;
+  const emailValue = email.value;
+  const passwordValue = password.value;
+  const passwordConfirmationValue = passwordConfirmation.value;
+
+  if (usernameValue === "") {
+    setErrorFor(username, "O nome de usuário é obrigatório.");
+  } else {
+    setSuccessFor(username);
+  }
+
+  if (emailValue === "") {
+    setErrorFor(email, "O email é obrigatório.");
+  } else if (!checkEmail(emailValue)) {
+    setErrorFor(email, "Por favor, insira um email válido.");
+  } else {
+    setSuccessFor(email);
+  }
+
+
+      </script>
+
+        
+        
+
+        
