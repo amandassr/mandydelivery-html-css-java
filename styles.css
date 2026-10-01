@@ -1,3 +1,4 @@
+/* 1. PALETA E MEDIDAS: troque estas variáveis para personalizar a loja. */
 :root {
   --bg: #fffaf2;
   --surface: #ffffff;
@@ -14,7 +15,9 @@
   --radius: 8px;
 }
 
+/* 2. BASE: comportamento padrão, tipografia e acessibilidade. */
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--bg); font-family: "Open Sans", Arial, sans-serif; line-height: 1.5; }
 body.no-scroll { overflow: hidden; }
@@ -23,6 +26,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
 .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; padding: .75rem 1rem; background: var(--ink); color: white; border-radius: 10px; }
 .skip-link:focus { top: 1rem; }
+
+/* 3. CABEÇALHO E NAVEGAÇÃO. */
 
 .site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: .65rem max(7vw, 1.25rem); background: var(--brand); border-bottom: 3px solid #111; }
 .brand { display: inline-flex; align-items: center; text-decoration: none; }
@@ -33,6 +38,7 @@ a { color: inherit; }
 .cart-trigger { display: inline-flex; align-items: center; gap: .45rem; padding: .68rem .9rem; border: 2px solid #111; border-radius: 999px; background: var(--accent); color: #111; font-weight: 800; cursor: pointer; box-shadow: 3px 3px 0 #111; }
 .cart-count { display: grid; place-items: center; min-width: 1.45rem; height: 1.45rem; padding: 0 .25rem; border-radius: 999px; background: var(--brand); color: white; font-size: .75rem; }
 
+/* 4. DESTAQUE PRINCIPAL: foto, chamada e selo de promoção. */
 main { overflow: hidden; }
 .hero { position: relative; display: grid; grid-template-columns: 1.2fr .55fr; gap: clamp(2rem, 7vw, 7rem); align-items: center; min-height: 690px; padding: 5rem max(7vw, 1.25rem); background: linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,.03)), url("Mandy Delivery/img/img.principal.jpg") center/cover no-repeat; border-bottom: 4px solid #111; }
 .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,.32), transparent 62%); pointer-events: none; }
@@ -56,6 +62,7 @@ main { overflow: hidden; }
 .hero-card h2 { margin: .35rem 0 0; font-size: clamp(1.4rem, 2vw, 2rem); text-transform: uppercase; }
 .hero-card p { margin: .7rem 0 0; color: #3d352c; font-weight: 700; }
 
+/* 5. CATÁLOGO: busca, filtros e cartões gerados pelo JavaScript. */
 .catalog-section, .steps-section, .about-section { padding: 6rem max(7vw, 1.25rem); }
 .catalog-section { background: var(--surface); border-bottom: 4px solid #111; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
@@ -83,11 +90,14 @@ main { overflow: hidden; }
 .product-price { font-size: 1.12rem; font-weight: 900; }
 .add-button { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 2px solid #111; border-radius: 50%; background: var(--accent); color: #111; font-size: 1.25rem; cursor: pointer; }
 .add-button:hover { background: white; }
+.add-button:disabled { cursor: not-allowed; opacity: .62; }
+.product-card.unavailable { filter: grayscale(.45); opacity: .72; }
 .empty-state { padding: 4rem 1rem; text-align: center; color: var(--muted); }
 .empty-state > span { font-size: 2.5rem; }
 .empty-state h3 { margin: .7rem 0 .3rem; color: var(--ink); }
 .text-button { padding: .5rem; border: 0; background: transparent; color: var(--brand); font-weight: 800; cursor: pointer; }
 
+/* 6. SEÇÕES EXPLICATIVAS E RODAPÉ. */
 .steps-section { background: var(--accent); border-bottom: 4px solid #111; }
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 1050px; margin: 3rem auto 0; }
 .steps-grid article { padding: 2rem; background: white; border: 2px solid #111; border-radius: 5px; text-align: center; box-shadow: 5px 5px 0 var(--brand); }
@@ -102,6 +112,7 @@ main { overflow: hidden; }
 .footer-brand { grid-row: span 2; }
 .footer-brand .brand-logo { filter: none; }
 
+/* 7. CARRINHO LATERAL. */
 .overlay { position: fixed; inset: 0; z-index: 40; background: rgba(18,14,24,.58); backdrop-filter: blur(3px); }
 .cart-drawer { position: fixed; top: 0; right: 0; z-index: 50; display: flex; flex-direction: column; width: min(440px, 100%); height: 100dvh; padding: 1.4rem; background: white; box-shadow: -20px 0 60px rgba(20,10,30,.2); transform: translateX(105%); transition: transform .3s ease; }
 .cart-drawer.open { transform: translateX(0); }
@@ -124,7 +135,8 @@ main { overflow: hidden; }
 .cart-summary > div { display: flex; justify-content: space-between; margin-bottom: .6rem; color: var(--muted); }
 .cart-summary .cart-total { margin: .9rem 0 1rem; padding-top: .9rem; border-top: 1px dashed var(--border); color: var(--ink); font-size: 1.15rem; }
 
-.modal { width: min(470px, calc(100% - 2rem)); padding: 2rem; border: 0; border-radius: 26px; color: var(--ink); background: white; box-shadow: var(--shadow); }
+/* 8. MODAIS: idade, checkout e confirmação do pedido. */
+.modal { width: min(640px, calc(100% - 2rem)); padding: 2rem; border: 2px solid #111; border-radius: 12px; color: var(--ink); background: white; box-shadow: var(--shadow); }
 .modal::backdrop { background: rgba(18,14,24,.7); backdrop-filter: blur(5px); }
 .modal h2 { margin: .7rem 0; font-size: 1.8rem; }
 .modal > p { color: var(--muted); }
@@ -138,6 +150,24 @@ main { overflow: hidden; }
 .checkout-modal input:focus, .checkout-modal select:focus, .checkout-modal textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(255,48,96,.16); }
 .checkout-modal .button { margin-top: 1.2rem; }
 .form-intro { padding: .75rem; border-radius: 12px; color: #614d17 !important; background: #fff6d6; font-size: .82rem; }
+.form-section { min-width: 0; margin: 1.2rem 0 0; padding: 1rem; border: 2px solid #111; border-radius: 8px; }
+.form-section legend { padding: 0 .45rem; font-weight: 900; }
+.form-grid { display: grid; gap: .8rem; }
+.form-grid.two-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.address-grid { grid-template-columns: 2fr .65fr 1fr; }
+.wide-field { grid-column: span 2; }
+.choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+.checkout-modal .choice-card { display: flex; align-items: center; gap: .7rem; margin: 0; padding: .85rem; border: 2px solid #111; border-radius: 8px; cursor: pointer; }
+.checkout-modal .choice-card input { width: auto; margin: 0; accent-color: var(--brand); }
+.choice-card span { display: grid; color: var(--ink) !important; }
+.choice-card small { color: var(--muted); font-weight: 400; }
+.checkout-total { margin-top: 1rem; padding: 1rem; background: var(--surface-soft); border: 2px solid #111; border-radius: 8px; }
+.checkout-total > div { display: flex; justify-content: space-between; gap: 1rem; }
+.checkout-total > div + div { margin-top: .45rem; }
+.checkout-grand-total { padding-top: .7rem; border-top: 1px dashed #111; font-size: 1.12rem; }
+.checkout-modal .consent-field { display: flex; align-items: flex-start; gap: .65rem; }
+.checkout-modal .consent-field input { flex: 0 0 auto; width: auto; margin: .2rem 0 0; accent-color: var(--brand); }
+.checkout-modal .consent-field span { color: var(--ink); font-size: .8rem; }
 .success-modal { text-align: center; }
 .success-check { margin: 0 auto; background: var(--success); }
 .order-number { margin: 1.2rem 0; padding: .8rem; border-radius: 12px; background: var(--surface-soft); font-weight: 900; letter-spacing: .06em; }
@@ -146,6 +176,7 @@ main { overflow: hidden; }
 .noscript { position: fixed; inset: auto 1rem 1rem; z-index: 100; padding: 1rem; color: white; background: var(--danger); border-radius: 12px; text-align: center; }
 :focus-visible { outline: 3px solid rgba(255,48,96,.4); outline-offset: 3px; }
 
+/* 9. RESPONSIVIDADE: reorganiza o conteúdo em telas menores. */
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-copy { max-width: 760px; }
@@ -177,6 +208,8 @@ main { overflow: hidden; }
   .product-description { display: none; }
   .product-price { font-size: .96rem; }
   .modal-actions { flex-direction: column; }
+  .form-grid.two-columns, .address-grid, .choice-grid { grid-template-columns: 1fr; }
+  .wide-field { grid-column: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }

@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mandy Delivery: catálogo de bebidas com busca, filtros, carrinho e simulação de pedido." />
-    <meta name="theme-color" content="#171321" />
+    <meta name="description" content="Mandy Delivery: catálogo de bebidas com busca, filtros, carrinho e pedido pelo WhatsApp." />
+    <meta name="theme-color" content="#ff3060" />
     <title>Mandy Delivery | Sua bebida, sem complicação</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
+    <!-- ACESSIBILIDADE: este link aparece quando alguém navega usando o teclado. -->
     <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
 
+    <!-- CABEÇALHO: logo, atalhos da página e botão do carrinho. -->
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Mandy Delivery - início">
-        <img class="brand-logo" src="Mandy%20Delivery/img/mandy%20delivery.png" alt="Mandy Delivery" />
+        <img class="brand-logo" src="assets/mandy-logo.png" alt="Mandy Delivery" />
       </a>
 
       <nav class="main-nav" aria-label="Navegação principal">
@@ -31,10 +33,11 @@
     </header>
 
     <main>
+      <!-- DESTAQUE PRINCIPAL: mantém a imagem e a linguagem da primeira versão. -->
       <section class="hero" id="inicio">
         <div class="hero-copy">
           <p class="eyebrow">Bebidas originais, entrega rápida e no precinho!</p>
-          <h1>Bebidas de qualidade.<br />Entrega em todo Brasil.</h1>
+          <h1>Bebidas de qualidade.<br />Entrega na sua região.</h1>
           <p>Escolha suas favoritas, monte o carrinho e deixe o resto com a Mandy.</p>
           <div class="hero-actions">
             <a class="button primary" href="#catalogo">Ver produtos</a>
@@ -43,7 +46,7 @@
           <ul class="benefits" aria-label="Vantagens">
             <li><span aria-hidden="true">✓</span> Catálogo organizado</li>
             <li><span aria-hidden="true">✓</span> Carrinho salvo</li>
-            <li><span aria-hidden="true">✓</span> Pedido demonstrativo</li>
+            <li><span aria-hidden="true">✓</span> Pedido pelo WhatsApp</li>
           </ul>
         </div>
         <div class="hero-card" aria-label="Destaque da semana">
@@ -54,6 +57,7 @@
         </div>
       </section>
 
+      <!-- CATÁLOGO: os cartões são preenchidos pelo JavaScript usando a lista de produtos. -->
       <section class="catalog-section" id="catalogo" aria-labelledby="catalog-title">
         <div class="section-heading">
           <div>
@@ -80,6 +84,7 @@
         </div>
       </section>
 
+      <!-- COMO FUNCIONA: explica a jornada para quem visita a loja. -->
       <section class="steps-section" id="como-funciona" aria-labelledby="steps-title">
         <div class="section-heading centered">
           <p class="eyebrow">Simples do começo ao fim</p>
@@ -88,7 +93,7 @@
         <div class="steps-grid">
           <article><span>1</span><h3>Escolha</h3><p>Pesquise e filtre as bebidas do catálogo.</p></article>
           <article><span>2</span><h3>Monte</h3><p>Ajuste quantidades no carrinho, que fica salvo neste dispositivo.</p></article>
-          <article><span>3</span><h3>Confirme</h3><p>Preencha os dados e gere uma confirmação demonstrativa.</p></article>
+          <article><span>3</span><h3>Confirme</h3><p>Preencha os dados e envie o pedido pronto pelo WhatsApp.</p></article>
         </div>
       </section>
 
@@ -101,14 +106,17 @@
       </section>
     </main>
 
+    <!-- RODAPÉ: informações institucionais e aviso de consumo responsável. -->
     <footer class="site-footer">
-      <a class="brand footer-brand" href="#inicio"><img class="brand-logo" src="Mandy%20Delivery/img/mandy%20delivery.png" alt="Mandy Delivery" /></a>
+      <a class="brand footer-brand" href="#inicio"><img class="brand-logo" src="assets/mandy-logo.png" alt="Mandy Delivery" /></a>
       <p>Projeto educacional desenvolvido por Amanda Ribeiro.</p>
       <p><span id="current-year"></span> • Consuma com moderação. Venda proibida para menores de 18 anos.</p>
     </footer>
 
+    <!-- A camada escura fecha o carrinho quando a pessoa clica fora dele. -->
     <div class="overlay" id="overlay" hidden></div>
 
+    <!-- CARRINHO LATERAL: produtos, quantidades e subtotal. -->
     <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
       <div class="drawer-header">
         <div><p class="eyebrow">Seu pedido</p><h2 id="cart-title">Carrinho</h2></div>
@@ -120,13 +128,14 @@
       </div>
       <div class="cart-summary" id="cart-summary" hidden>
         <div><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
-        <div><span>Entrega</span><strong>Grátis</strong></div>
+        <div><span>Entrega</span><strong id="cart-delivery">Calcular no checkout</strong></div>
         <div class="cart-total"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div>
         <button class="button primary full" id="checkout-button" type="button">Continuar pedido</button>
         <button class="text-button full" id="clear-cart" type="button">Esvaziar carrinho</button>
       </div>
     </aside>
 
+    <!-- AVISO DE IDADE: restringe as bebidas alcoólicas para menores de 18 anos. -->
     <dialog class="modal" id="age-modal" aria-labelledby="age-title">
       <div class="modal-icon" aria-hidden="true">18+</div>
       <h2 id="age-title">Você tem 18 anos ou mais?</h2>
@@ -138,30 +147,75 @@
       <p class="legal-note">Ao continuar, você declara ter idade legal para comprar bebidas alcoólicas.</p>
     </dialog>
 
+    <!-- CHECKOUT: coleta somente os dados necessários para montar a mensagem do pedido. -->
     <dialog class="modal checkout-modal" id="checkout-modal" aria-labelledby="checkout-title">
       <form id="checkout-form">
         <div class="drawer-header">
           <div><p class="eyebrow">Última etapa</p><h2 id="checkout-title">Dados do pedido</h2></div>
           <button class="icon-button" id="close-checkout" type="button" aria-label="Fechar">×</button>
         </div>
-        <p class="form-intro">Esta é uma simulação: nenhum pagamento ou entrega real será realizado.</p>
-        <label>Nome completo<input name="name" autocomplete="name" required minlength="3" /></label>
-        <label>Endereço de entrega<input name="address" autocomplete="street-address" required minlength="8" /></label>
+        <p class="form-intro" id="checkout-notice">Revise os dados: o pedido será montado e enviado para a loja pelo WhatsApp.</p>
+
+        <fieldset class="form-section">
+          <legend>1. Como você quer receber?</legend>
+          <div class="choice-grid">
+            <label class="choice-card"><input type="radio" name="orderType" value="delivery" checked /> <span><strong>Entrega</strong><small>Receber no endereço</small></span></label>
+            <label class="choice-card"><input type="radio" name="orderType" value="pickup" /> <span><strong>Retirada</strong><small>Buscar na loja</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>2. Seus dados</legend>
+          <div class="form-grid two-columns">
+            <label>Nome completo<input name="name" autocomplete="name" required minlength="3" /></label>
+            <label>WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(27) 99999-9999" /></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section delivery-fields" id="delivery-fields">
+          <legend>3. Endereço de entrega</legend>
+          <label>Região de entrega
+            <select name="deliveryArea" id="delivery-area" required></select>
+          </label>
+          <div class="form-grid address-grid">
+            <label class="wide-field">Rua ou avenida<input id="address" name="address" autocomplete="street-address" required minlength="5" /></label>
+            <label>Número<input id="address-number" name="addressNumber" autocomplete="address-line2" required /></label>
+            <label>Bairro<input id="neighborhood" name="neighborhood" autocomplete="address-level3" required /></label>
+            <label>Complemento <span>(opcional)</span><input name="complement" autocomplete="address-line3" /></label>
+          </div>
+          <label>Ponto de referência <span>(opcional)</span><input name="reference" maxlength="100" placeholder="Ex.: próximo à praça" /></label>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend><span id="payment-step">4</span>. Pagamento</legend>
         <label>Forma de pagamento
-          <select name="payment" required><option value="">Selecione</option><option>Pix na entrega</option><option>Cartão na entrega</option><option>Dinheiro</option></select>
+          <select name="payment" id="payment-method" required></select>
         </label>
+        <label class="change-field" id="change-field" hidden>Troco para quanto?<input id="change-for" name="changeFor" inputmode="decimal" placeholder="Ex.: 100,00" /></label>
         <label>Observações <span>(opcional)</span><textarea name="notes" rows="3" maxlength="180" placeholder="Ex.: deixar na portaria"></textarea></label>
-        <button class="button primary full" type="submit">Confirmar pedido demonstrativo</button>
+        </fieldset>
+
+        <div class="checkout-total" aria-live="polite">
+          <div><span>Produtos</span><strong id="checkout-subtotal">R$ 0,00</strong></div>
+          <div><span>Entrega</span><strong id="checkout-delivery">R$ 0,00</strong></div>
+          <div class="checkout-grand-total"><span>Total do pedido</span><strong id="checkout-total">R$ 0,00</strong></div>
+        </div>
+
+        <label class="consent-field"><input name="consent" type="checkbox" required /> <span>Autorizo o envio destes dados à loja pelo WhatsApp para atender este pedido.</span></label>
+        <button class="button primary full" type="submit" id="send-order">Enviar pedido pelo WhatsApp</button>
       </form>
     </dialog>
 
+    <!-- CONFIRMAÇÃO: aparece depois que a mensagem do pedido é preparada. -->
     <dialog class="modal success-modal" id="success-modal" aria-labelledby="success-title">
       <div class="success-check" aria-hidden="true">✓</div>
-      <p class="eyebrow">Simulação concluída</p>
-      <h2 id="success-title">Pedido confirmado!</h2>
+      <p class="eyebrow">Pedido preparado</p>
+      <h2 id="success-title">Tudo certinho!</h2>
       <p id="success-message"></p>
       <div class="order-number" id="order-number"></div>
-      <button class="button primary full" id="finish-order" type="button">Voltar ao catálogo</button>
+      <button class="button primary full" id="open-whatsapp" type="button">Abrir WhatsApp</button>
+      <button class="button secondary full" id="copy-order" type="button">Copiar pedido</button>
+      <button class="text-button full" id="finish-order" type="button">Voltar ao catálogo</button>
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>

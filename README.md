@@ -9,12 +9,16 @@ Uma experiência de delivery de bebidas construída com HTML, CSS e JavaScript p
 - filtros por categoria;
 - carrinho com inclusão, remoção e alteração de quantidade;
 - persistência do carrinho com `localStorage`;
-- cálculo automático do total em reais;
-- confirmação de maioridade;
-- formulário validado e simulação de fechamento do pedido;
+- cálculo automático de subtotal, taxa de entrega e total;
+- confirmação de maioridade com catálogo restrito para menores;
+- entrega ou retirada, endereço, pagamento e observações;
+- pedido organizado para envio pelo WhatsApp;
+- disponibilidade de produtos configurável;
 - layout responsivo e recursos básicos de acessibilidade.
 
-> Este é um projeto educacional. O fechamento do pedido é uma simulação e não processa pagamentos nem entregas reais.
+> O site monta o pedido e encaminha a mensagem ao WhatsApp da loja. A confirmação do estoque, prazo, pagamento e entrega continua sendo feita pela pessoa responsável pelo negócio.
+
+Para adaptar o projeto a um pequeno delivery, siga o [guia comentado de configuração](GUIA_DO_CODIGO.md).
 
 ## Tecnologias
 
@@ -41,6 +45,8 @@ Depois, acesse `http://localhost:8000`.
 ├── index.html          # interface principal
 ├── styles.css          # identidade visual e responsividade
 ├── app.js              # catálogo, filtros, carrinho e checkout
+├── GUIA_DO_CODIGO.md   # explicação e pontos de personalização
+├── assets/              # logo e imagem da água sem fundo
 └── Mandy Delivery/     # primeira versão, mantida como histórico
 ```
 
