@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mandy Delivery: catálogo de bebidas com busca, filtros, carrinho e simulação de pedido." />
+    <meta name="theme-color" content="#171321" />
+    <title>Mandy Delivery | Sua bebida, sem complicação</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Mandy Delivery - início">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>Mandy <strong>Delivery</strong></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#catalogo">Produtos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+
+      <button class="cart-trigger" id="open-cart" type="button" aria-controls="cart-drawer" aria-expanded="false">
+        <span aria-hidden="true">🛒</span>
+        Carrinho
+        <span class="cart-count" id="cart-count" aria-label="0 itens">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Entrega rápida • Compra simples</p>
+          <h1>A bebida certa para cada momento.</h1>
+          <p>Encontre seus favoritos, monte o carrinho e simule o pedido em poucos cliques.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#catalogo">Ver produtos</a>
+            <a class="button secondary" href="#como-funciona">Como funciona</a>
+          </div>
+          <ul class="benefits" aria-label="Vantagens">
+            <li><span aria-hidden="true">✓</span> Catálogo organizado</li>
+            <li><span aria-hidden="true">✓</span> Carrinho salvo</li>
+            <li><span aria-hidden="true">✓</span> Pedido demonstrativo</li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-label="Destaque da semana">
+          <span class="hero-badge">Destaque da semana</span>
+          <div class="hero-visual" aria-hidden="true">
+            <span>🍺</span><span>🍹</span><span>🥤</span>
+          </div>
+          <h2>Seu rolê começa aqui</h2>
+          <p>Opções com e sem álcool em um catálogo fácil de explorar.</p>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalogo" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Nosso catálogo</p>
+            <h2 id="catalog-title">Escolha seus produtos</h2>
+          </div>
+          <p id="result-count" class="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="catalog-tools">
+          <label class="search-box" for="search-input">
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Buscar por nome ou categoria" autocomplete="off" />
+          </label>
+          <div class="filters" id="category-filters" aria-label="Filtrar por categoria"></div>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">🔎</span>
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente outro termo ou selecione uma categoria diferente.</p>
+          <button class="text-button" id="clear-filters" type="button">Limpar busca e filtros</button>
+        </div>
+      </section>
+
+      <section class="steps-section" id="como-funciona" aria-labelledby="steps-title">
+        <div class="section-heading centered">
+          <p class="eyebrow">Simples do começo ao fim</p>
+          <h2 id="steps-title">Como funciona</h2>
+        </div>
+        <div class="steps-grid">
+          <article><span>1</span><h3>Escolha</h3><p>Pesquise e filtre as bebidas do catálogo.</p></article>
+          <article><span>2</span><h3>Monte</h3><p>Ajuste quantidades no carrinho, que fica salvo neste dispositivo.</p></article>
+          <article><span>3</span><h3>Confirme</h3><p>Preencha os dados e gere uma confirmação demonstrativa.</p></article>
+        </div>
+      </section>
+
+      <section class="about-section" id="sobre">
+        <div>
+          <p class="eyebrow">Sobre o projeto</p>
+          <h2>Do primeiro site a uma experiência funcional</h2>
+        </div>
+        <p>O Mandy Delivery nasceu como projeto final do curso Programação Web Tech para Manas, no SENAI Vitória. Esta evolução mantém a ideia original e adiciona uma experiência completa de catálogo e carrinho usando apenas HTML, CSS e JavaScript.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#inicio"><span class="brand-mark">M</span><span>Mandy <strong>Delivery</strong></span></a>
+      <p>Projeto educacional desenvolvido por Amanda Ribeiro.</p>
+      <p><span id="current-year"></span> • Consuma com moderação. Venda proibida para menores de 18 anos.</p>
+    </footer>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+      <div class="drawer-header">
+        <div><p class="eyebrow">Seu pedido</p><h2 id="cart-title">Carrinho</h2></div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty">
+        <span aria-hidden="true">🛒</span><h3>Seu carrinho está vazio</h3><p>Adicione produtos para começar.</p>
+      </div>
+      <div class="cart-summary" id="cart-summary" hidden>
+        <div><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+        <div><span>Entrega</span><strong>Grátis</strong></div>
+        <div class="cart-total"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div>
+        <button class="button primary full" id="checkout-button" type="button">Continuar pedido</button>
+        <button class="text-button full" id="clear-cart" type="button">Esvaziar carrinho</button>
+      </div>
+    </aside>
+
+    <dialog class="modal" id="age-modal" aria-labelledby="age-title">
+      <div class="modal-icon" aria-hidden="true">18+</div>
+      <h2 id="age-title">Você tem 18 anos ou mais?</h2>
+      <p>Este catálogo contém bebidas alcoólicas. Confirme sua idade para continuar.</p>
+      <div class="modal-actions">
+        <button class="button primary" id="age-confirm" type="button">Sim, tenho 18+</button>
+        <button class="button secondary" id="age-deny" type="button">Não</button>
+      </div>
+      <p class="legal-note">Ao continuar, você declara ter idade legal para comprar bebidas alcoólicas.</p>
+    </dialog>
+
+    <dialog class="modal checkout-modal" id="checkout-modal" aria-labelledby="checkout-title">
+      <form id="checkout-form">
+        <div class="drawer-header">
+          <div><p class="eyebrow">Última etapa</p><h2 id="checkout-title">Dados do pedido</h2></div>
+          <button class="icon-button" id="close-checkout" type="button" aria-label="Fechar">×</button>
+        </div>
+        <p class="form-intro">Esta é uma simulação: nenhum pagamento ou entrega real será realizado.</p>
+        <label>Nome completo<input name="name" autocomplete="name" required minlength="3" /></label>
+        <label>Endereço de entrega<input name="address" autocomplete="street-address" required minlength="8" /></label>
+        <label>Forma de pagamento
+          <select name="payment" required><option value="">Selecione</option><option>Pix na entrega</option><option>Cartão na entrega</option><option>Dinheiro</option></select>
+        </label>
+        <label>Observações <span>(opcional)</span><textarea name="notes" rows="3" maxlength="180" placeholder="Ex.: deixar na portaria"></textarea></label>
+        <button class="button primary full" type="submit">Confirmar pedido demonstrativo</button>
+      </form>
+    </dialog>
+
+    <dialog class="modal success-modal" id="success-modal" aria-labelledby="success-title">
+      <div class="success-check" aria-hidden="true">✓</div>
+      <p class="eyebrow">Simulação concluída</p>
+      <h2 id="success-title">Pedido confirmado!</h2>
+      <p id="success-message"></p>
+      <div class="order-number" id="order-number"></div>
+      <button class="button primary full" id="finish-order" type="button">Voltar ao catálogo</button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <noscript><p class="noscript">Ative o JavaScript para usar busca, filtros e carrinho.</p></noscript>
+  </body>
+</html>
